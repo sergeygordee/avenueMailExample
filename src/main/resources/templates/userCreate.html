@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="#" th:action="@{/userCreate}" th:object="${user}" method="post">
+    <table>
+        <tr><td>Name:</td><td><input type="text" th:field="*{userName}"/></td></tr>
+        <tr><td>Password:</td><td><input type="password" th:field="*{userPass}"/></td></tr>
+        <tr><td>Email:</td><td><input type="email" th:field="*{userEmail}"/></td></tr>
+        <tr><td>Country:</td><td>
+            <select th:field="*{userCountry}" style="width:150px" >
+                <option value="India">India</option>
+                <option value="USA">USA</option>
+                <option value="UK">UK</option>
+                <option value="Other">Other</option>
+            </select>
+        </td></tr>
+        <tr><td colspan="2"><input type="submit" value="register"/></td></tr>
+    </table>
+</form>
+<a href="/users" th:href="@{/users}">List of users</a><br>
+</body>
+</html>

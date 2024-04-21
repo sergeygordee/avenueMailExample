@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<center>
+<h1>Форма для отправки письма</h1>
+<form th:action="@{/send-email} " th:object="${emailForm}"  enctype="multipart/form-data" method="post" >
+<input type="email" th:field="*{email}" placeholder="Введите  получателя" required><br>
+
+
+    <p>sergeyspringemail@gmail.com</p>
+    <p>sergey.gordeev.000@mail.ru</p>
+    <textarea th:field="*{text}" placeholder="Введите текст сообщения"></textarea><br>
+    <textarea th:field="*{subject}" placeholder="Введите тему письма"></textarea><br>
+    <input type="file" name="file"/><br>
+    <button type="submit">Отправить</button>
+</form>
+
+</center>
+</body>
+</html>
