@@ -1,16 +1,14 @@
 package com.example.avenueMailExample.controller;
 
 import com.example.avenueMailExample.entity.EmailForm;
-import com.example.avenueMailExample.entity.User;
 import com.example.avenueMailExample.service.EmailService;
-import com.example.avenueMailExample.service.UserService;
-import jakarta.mail.MessagingException;
-import lombok.Getter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+
+import javax.mail.MessagingException;
 
 @Controller
 public class EmailController {
@@ -44,13 +42,16 @@ public class EmailController {
     public String showEmailSentPage(){
         return "email-sent";
     }
-    @RequestMapping("/")
-    public String root() {
-        return "redirect:/index";
-    }
 
-    @RequestMapping("/index")
-    public String index() {
-        return "index";
-    }
+//    @RequestMapping("/")
+//    public String root() {
+//        return "redirect:/index";
+//    }
+//
+//    @RequestMapping("/index")
+//    public String index() {
+//        return "index";
+//    }
+
+
 }

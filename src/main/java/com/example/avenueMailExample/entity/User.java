@@ -1,10 +1,10 @@
 package com.example.avenueMailExample.entity;
 
-import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
     @Column(name = "userName")
     private String userName;
     @Column(name = "userPass")

@@ -18,41 +18,48 @@ public class UserController {
         this.userService = userService;
     }
 
+
     @GetMapping("/userCreate")
-    public String createUserForm(User user){
+    public String createUserForm(User user) {
         return "userCreate";
     }
 
-    @PostMapping("/userCreate")
-    public String createUser(User user){
-        userService.saveUser(user);
-        return "redirect:/users";
-    }
 
-    @GetMapping("/userDelete/{id}")
-    public String deleteUser(@PathVariable("id") int id){
-        userService.deleteUser(id);
+    @PostMapping("/userCreate")
+    public String createUser(User user) {
+        userService.saveUser(user);
         return "redirect:/users";
     }
 
     @GetMapping("/users")
-    public String findAll(Model model){
-        List<User> persons = userService.findAll();
-        model.addAttribute("users", persons);
+    public String findAll(Model model) {
+        List<User> users = userService.findAll();
+        model.addAttribute("users", users);
         return "userList";
+
     }
 
-    @GetMapping("userUpdate/{id}")
-    public String updateUser(@PathVariable("id") Integer id, Model model){
+    @GetMapping("/userDelete/{id}")
+    public String deleteUser(@PathVariable("id") Long id){
+        userService.deleteUser(id);
+        return "redirect:/users";
+    }
+
+    @GetMapping("/userUpdate/{id}")
+    public String userUpdate(@PathVariable("id")Long id, Model model){
         User user = userService.findById(id);
         model.addAttribute("user", user);
         return "userUpdate";
+
     }
 
     @PostMapping("/userUpdate")
-    public String updateUser(User user){
+    public String userUpdate(User user){
         userService.saveUser(user);
         return "redirect:/users";
     }
+
+
+
 
 }
